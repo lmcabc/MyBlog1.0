@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lmc.dao.TypeMapper">
+    <select id="getAllType" resultType="com.lmc.pojo.Type">
+        select * from lmcblog.t_type
+    </select>
+
+    <select id="getTypeById" resultType="com.lmc.pojo.Type">
+        select * from lmcblog.t_type where id=#{id}
+    </select>
+
+    <insert id="addType" parameterType="com.lmc.pojo.Type">
+        insert into lmcblog.t_type values (#{id}, #{name})
+    </insert>
+
+    <select id="getTypeByName" resultType="com.lmc.pojo.Type">
+        select * from lmcblog.t_type where name=#{name}
+    </select>
+
+    <delete id="deleteTypeById" >
+        delete from lmcblog.t_type where id=#{id}
+    </delete>
+
+    <update id="updateType" parameterType="com.lmc.pojo.Type">
+        update lmcblog.t_type set name=#{name} where id=#{id}
+    </update>
+    
+    <resultMap id="type" type="com.lmc.pojo.Type">
+        <id column="tid" property="id"/>
+        <result column="name" property="name"/>
+        <collection property="blogs" ofType="com.lmc.pojo.Blog">
+            <id property="id" column="bid"/>
+            <result property="title" column="title"/>
+            <result property="typeId" column="type_id"/>
+        </collection>
+    </resultMap>
+    
+    <select id="getAllTypeIndex" resultMap="type">
+        select b.id bid, b.title, b.type_id, t.id tid, t.name
+        from lmcblog.t_blog b, lmcblog.t_type t
+        where t.id = b.type_id
+    </select>
+</mapper>

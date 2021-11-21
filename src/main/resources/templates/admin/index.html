@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="admin/_fragments :: head(~{::title})">
+    <meta charset="UTF-8">
+    <!--移动端预览设置-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>博客管理</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <link rel="stylesheet" href="../../static/css/me.css">
+</head>
+<body>
+    <!--导航-->
+    <nav th:replace="admin/_fragments :: menu(0)" class="ui inverted attached m-shadow-small segment m-padded-tb-mini">
+        <div class="ui container">
+            <div class="ui inverted secondary stackable menu"><!--stackable可堆叠，为移动端准备的-->
+                <h2 class="ui teal header item">后台管理</h2>
+                <a href="#" class="active m-item item m-mobile-hide"><i class="home icon"></i>博客</a>
+                <a href="#" class=" m-item item m-mobile-hide"><i class="idea icon"></i>分类</a>
+                <a href="#" class="m-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
+                <div class="right m-item m-mobile-hide menu">
+                    <div class="ui dropdown item">
+                        <div class="text">
+                            <img src="https://unsplash.it/100/100?image=1005" alt="" class="ui avatar image">
+                            梁敏聪
+                        </div>
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                            <a href="#" class="item">修改信息</a>
+                            <a href="#" class="item">注销</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">
+            <i class="sidebar icon"></i>
+        </a>
+    </nav>
+    <!--中间内容-->
+    <div class="m-container-small m-padded-tb-big">
+        <ui class="ui container">
+            <div class="ui attached success large message">
+                <h3>Hi,</h3>
+                <p>欢迎登录!</p>
+            </div>
+            <img src="https://unsplash.it/1000/400?image=1005" alt="" class="ui attached rounded bordered fluid image">
+        </ui>
+    </div>
+
+    <!--底部-->
+    <footer th:replace="admin/_fragments :: footer" class="ui inverted vertical segment m-padded-tb-massive"><!--inverted反转便黑，vertical边角平直-->
+        <div class="ui center aligned container"><!--container容器 ,center aligned居中对齐-->
+            <div class="ui inverted divided stackable grid"><!--grid网格,inverted divided反转，分割线-->
+                <!--3+3+3+7=16列-->
+                <div class="three wide column">
+                    <div class="ui inverted link list">
+                        <div class="item">
+                            <img src="../../static/images/wx.jpg" class="ui rounded image" alt="" style="width: 110px">
+                        </div>
+                    </div>
+                </div>
+                <div class="three wide column">
+                    <h4 class="ui inverted header m-text-thin m-text-spaced">最新博客</h4>
+                    <div class="ui inverted link list">
+                        <a href="#" class="item">用户故事(User story)</a>
+                        <a href="#" class="item">SpringBoot</a>
+                        <a href="#" class="item">SSM整合开发</a>
+                    </div>
+                </div>
+                <div class="three wide column">
+                    <h4 class="ui inverted header m-text-thin m-text-spaced">联系我</h4>
+                    <div class="ui inverted link list">
+                        <a href="#" class="item">QQ:1458256679</a>
+                        <a href="#" class="item">Email:1458256679@qq.com</a>
+                    </div>
+                </div>
+                <div class="seven wide column">
+                    <h4 class="ui inverted header m-text-thin m-text-spaced">Blog</h4>
+                    <p class="m-text-thin m-opacity-mini m-text-spaced">感谢你的关注,希望我的博客能对你有所帮助</p>
+                </div>
+            </div>
+            <div class="ui inverted section divider"></div><!--section部分divider分割线-->
+            <p class="m-text-thin m-opacity-tiny m-text-spaced">Copyright@2021-9 lmc Designed by lmc</p>
+        </div>
+
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
+    <script src="../../static/lib/editormd/editormd.min.js" th:src="@{/lib/editormd/editormd.min.js}"></script>
+    <script>
+        $('.menu.toggle').click(function (){
+            $('.m-item').toggleClass('m-mobile-hide');
+        });
+
+        $('.ui.dropdown')
+            .dropdown()
+        ;
+
+    </script>
+</body>
+</html>

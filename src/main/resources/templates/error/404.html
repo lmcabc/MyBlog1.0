@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="_fragments :: head(~{::title})">
+    <meta charset="UTF-8">
+    <!--移动端预览设置-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>首页</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.css">
+    <link rel="stylesheet" href="../static/css/me.css">
+</head>
+<body>
+<!--导航-->
+<!--th:replace="_fragments :: menu(1)"使用片段代替这个标签，引用的是menu片段 -->
+<nav th:replace="_fragments :: menu(1)" class="ui inverted attached segment m-shadow-small m-padded-tb-mini">
+    <div class="ui container">
+        <div class="ui inverted secondary stackable menu"><!--stackable可堆叠，为移动端准备的-->
+            <h2 class="ui teal header item">Blog</h2>
+            <a href="#" class="m-item item m-mobile-hide"><i class="home icon"></i>首页</a>
+            <a href="#" class="m-item item m-mobile-hide"><i class="idea icon"></i>分类</a>
+            <a href="#" class="m-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
+            <a href="#" class="m-item item m-mobile-hide"><i class="clone icon"></i>归档</a>
+            <a href="#" class="m-item item m-mobile-hide"><i class="info icon"></i>关于我</a>
+            <div class="right m-item item m-mobile-hide">
+                <div class="ui icon input">
+                    <input type="text" placeholder="Search...">
+                    <i class="search link icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">
+        <i class="sidebar icon"></i>
+    </a>
+</nav>
+
+<br>
+<br>
+<br>
+    <div class="m-container-small m-padded-tb-massive">
+        <div class="ui error message m-padded-tb-huge">
+            <div class="ui contianer">
+                <h2>404</h2>
+                <p>对不起，你访问的资源不存在!!</p>
+            </div>
+        </div>
+    </div>
+<br>
+<br>
+<br>
+<br>
+
+<!--底部-->
+<footer th:fragment="footer" class="ui inverted vertical segment m-padded-tb-massive"><!--inverted反转便黑，vertical边角平直-->
+    <div class="ui center aligned container"><!--container容器 ,center aligned居中对齐-->
+        <div class="ui inverted divided stackable grid"><!--grid网格,inverted divided反转，分割线-->
+            <!--3+3+3+7=16列-->
+            <div class="three wide column">
+                <div class="ui inverted link list">
+                    <div class="item">
+                        <img th:src="@{/images/wx.jpg}" class="ui rounded image" alt="" style="width: 110px">
+                    </div>
+                </div>
+            </div>
+            <div class="three wide column">
+                <h4 class="ui inverted header m-text-thin m-text-spaced">最新博客</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">用户故事(User story)</a>
+                    <a href="#" class="item">SpringBoot</a>
+                    <a href="#" class="item">SSM整合开发</a>
+                </div>
+            </div>
+            <div class="three wide column">
+                <h4 class="ui inverted header m-text-thin m-text-spaced">联系我</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">QQ:1458256679</a>
+                    <a href="#" class="item">Email:1458256679@qq.com</a>
+                </div>
+            </div>
+            <div class="seven wide column">
+                <h4 class="ui inverted header m-text-thin m-text-spaced">Blog</h4>
+                <p class="m-text-thin m-opacity-mini m-text-spaced">感谢你的关注,希望我的博客能对你有所帮助</p>
+            </div>
+        </div>
+        <div class="ui inverted section divider"></div><!--section部分divider分割线-->
+        <p class="m-text-thin m-opacity-tiny m-text-spaced">Copyright@2021-9 lmc Designed by lmc</p>
+    </div>
+</footer>
+</body>
+</html>
